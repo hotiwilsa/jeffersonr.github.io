@@ -1,0 +1,406 @@
+
+:root{
+  --blue:#0A2540;
+  --accent:#FF6A3D;
+  --muted:#6B7280;
+  --bg:#F5F7FA;
+  --white:#fff;
+  --radius:12px;
+  --shadow:0 4px 20px rgba(0,0,0,0.10);
+}
+
+/* Reset básico */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:#17212b;
+}
+
+/* Containers */
+.container{max-width:1100px;margin:0 auto;padding:20px}
+
+/* -------------------------------- HEADER */
+.site-header{
+  background:var(--blue);
+  color:var(--white);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo-placeholder{
+  width:50px;
+  height:50px;
+  background:var(--accent);
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:700;
+}
+
+.brand-info h1{font-size:1rem;}
+.brand-info .tagline{font-size:0.8rem;color:#ddd}
+
+.nav{
+  display:flex;
+  gap:20px;
+}
+
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.nav a:hover{
+  opacity:.7;
+}
+
+/* Mobile button */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:4px;
+  background:none;
+  border:0;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:22px;
+  height:2px;
+  background:white;
+}
+
+/* -------------------------------- HERO */
+.hero{
+  height:70vh;
+  background:url("assets/images/hero.jpg") center/cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+}
+
+.hero-content{
+  position:relative;
+  color:white;
+  display:flex;
+  gap:20px;
+}
+
+.hero-text h2{
+  font-size:2rem;
+  margin-bottom:10px;
+}
+
+/* BOTÃO AJUSTADO */
+.btn{
+  padding:1px 20px;
+  border-radius:10px;
+  border:0;
+  cursor:pointer;
+  font-weight:700;
+  margin-top:18px; /* ← AJUSTE FEITO AQUI */
+}
+
+.primary{
+  background:var(--accent);
+  color:white;
+}
+
+.hero-card .card{
+  background:white;
+  padding:20px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  color:var(--blue);
+}
+
+/* -------------------------------- SECTIONS */
+.section{
+  margin-top:40px;
+}
+
+h3{
+  color:var(--blue);
+  margin-bottom:15px;
+}
+
+/* Sobre */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 300px;
+  gap:20px;
+}
+
+.about-img img{
+  width:100%;
+  border-radius:var(--radius);
+}
+
+/* Eventos */
+.events-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.event-card{
+  background:white;
+  padding:16px;
+  border-radius:var(--radius);
+  border-left:4px solid var(--accent);
+  box-shadow:var(--shadow);
+}
+
+/* Galeria */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:15px;
+}
+
+.gallery-thumb{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:var(--radius);
+  cursor:pointer;
+  transition:transform .3s;
+}
+
+.gallery-thumb:hover{
+  transform:scale(1.03);
+}
+
+/* Contato */
+.contact-form{
+  background:white;
+  padding:20px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+label{
+  font-weight:600;
+  margin-bottom:6px;
+  display:block;
+}
+
+input,textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:8px;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+/* -------------------------------- FOOTER */
+.site-footer{
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+  color:var(--muted);
+}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.lb-close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:none;
+  border:0;
+  font-size:32px;
+  color:white;
+  cursor:pointer;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:80%;
+  border-radius:var(--radius);
+}
+
+/* ================================
+   MOBILE ULTRA MODERNO (até 800px)
+   ================================ */
+@media(max-width:800px){
+
+  /* HEADER MOBILE */
+  .header-inner{
+    padding: 14px 10px;
+  }
+
+  .brand-info h1{
+    font-size: 0.95rem;
+  }
+
+  /* MENU MOBILE FULLSCREEN */
+  .nav{
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 37, 64, 0.95);
+    backdrop-filter: blur(6px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+    transform: translateY(-100%);
+    transition: transform 0.35s ease;
+    font-size: 1.3rem;
+  }
+
+  .nav.open{
+    transform: translateY(0%);
+  }
+
+  .nav a{
+    color: white;
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+
+  /* Ícone hambúrguer avançado */
+  .hamburger{
+    display:flex;
+    z-index:200;
+  }
+  .hamburger span{
+    transition: 0.3s;
+  }
+
+  /* Animação do botão */
+  .hamburger.active span:nth-child(1){
+    transform: rotate(45deg) translateY(6px);
+  }
+  .hamburger.active span:nth-child(2){
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3){
+    transform: rotate(-45deg) translateY(-6px);
+  }
+
+  /* HERO MOBILE */
+  .hero{
+    height: 60vh;
+    background-position: top center;
+  }
+
+  .hero-content{
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 0 12px;
+  }
+
+  .hero-text h2{
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .hero-card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card{
+    width: 90%;
+  }
+
+  /* SOBRE MOBILE */
+  .about-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .about-img img{
+    border-radius: 16px;
+  }
+
+  /* EVENTOS MOBILE */
+  .events-grid{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .event-card{
+    border-radius: 16px;
+    padding: 20px;
+    font-size: 1.05rem;
+  }
+
+  /* GALERIA — CARROSSEL HORIZONTAL */
+  .gallery{
+    display: flex;
+    overflow-x: auto;
+    gap: 14px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+  }
+
+  .gallery-thumb{
+    flex: 0 0 78%;
+    height: 240px;
+    scroll-snap-align: start;
+    border-radius: 16px;
+  }
+
+  /* FORMULÁRIO — ESTILO APP */
+  .contact-form{
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  input, textarea{
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #d4d7dd;
+    background: #fafcff;
+  }
+
+  .btn.primary{
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    margin-top:18px; /* AJUSTE TAMBÉM NO MOBILE */
+  }
+
+  /* FOOTER */
+  .site-footer{
+    font-size: 0.9rem;
+    padding: 20px 10px;
+  }
+}
+
